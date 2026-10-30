@@ -19,7 +19,13 @@ public class ApiExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(new ErrorResponse(ex.getMessage(), HttpStatus.NOT_FOUND.value()));
     }
-    
+
+    @ExceptionHandler(ExternalServiceException.class)
+    public ResponseEntity<ErrorResponse> handleExternalService(ExternalServiceException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY)
+                .body(new ErrorResponse(ex.getMessage(), HttpStatus.BAD_GATEWAY.value()));
+    }
+
 
     public record ErrorResponse(String error, int status) {
     }

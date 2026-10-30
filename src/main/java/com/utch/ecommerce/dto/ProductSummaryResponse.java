@@ -21,7 +21,7 @@ public record ProductSummaryResponse(
         @JsonProperty("price_usd") BigDecimal priceUsd,
         @JsonProperty("price_mxn") BigDecimal priceMxn,
         @JsonProperty("stock_status") String stockStatus,
-        @JsonProperty("available_units") int availableUnits,
+        @JsonProperty("available_units") Integer availableUnits,
         @JsonProperty("currency_conversion_source") String currencyConversionSource,
         String status
 ) {
